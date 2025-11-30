@@ -1,0 +1,11 @@
+extends ../pug/layout.pug
+include ../components/lookbook/lookbook.pug
+include ../components/hero/hero.pug
+include ../components/about/about.pug
+
+block title
+  title Index
+block content
+    +hero
+    +about
+    +lookbook

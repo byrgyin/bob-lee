@@ -1,0 +1,13 @@
+mixin lookbook(data)
+  section.lookbook
+    +image({src:'images/lookbook.avif',klassPic:'lookbook__bg-picture',klassImg:'lookbook__img',quickLoad:false})
+    +image({src:'images/lookbook__mobile.avif',klassPic:'lookbook__bg-picture lookbook__bg-picture--mobile',klassImg:'lookbook__img',quickLoad:false})
+    .container
+        .lookbook__block
+            h2.lookbook__title Lookbook `25
+            +image({src:'images/lookbook__small.avif',klassPic:'lookbook__middle-pic',klassImg:'lookbook__middle-img',quickLoad:false})
+            .lookbook__block-bottom
+                a(href='#').lookbook__link Смотреть
+                    +image({src:'images/lookbook__arrow-right.svg',klassImg:'lookbook__arrow',quickLoad:false})
+                .lookbook__block-text Фото
+                    span (58)

@@ -1,0 +1,73 @@
+@use "fonts";
+@use "variables";
+@use "mixins";
+@use "typography";
+html{
+  box-sizing: border-box;
+}
+*,
+*:after,
+*:before{
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: variables.$font-family-base;
+  font-size: variables.$font-base-size;
+  color: variables.$primary-color-1;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+input, select {
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+a,
+button {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+button{
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin:0;
+}
+a{
+  color: inherit;
+}
+ul,ol{
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+.container{
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 24px;
+  margin: 0 auto;
+  @include mixins.tablet{
+    padding: 0 12px;
+  }
+}
+.button{
+  display: inline-block;
+  padding: 11px 20px;
+  font-weight: 400;
+  font-size: 14px;
+  leading-trim: NONE;
+  text-align: center;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #fff;
+  background-color: variables.$primary-color-1;
+}

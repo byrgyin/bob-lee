@@ -1,0 +1,94 @@
+@use "variables";
+@mixin max-screen($size){
+  @media (max-width: $size){
+    @content;
+  }
+}
+
+@mixin min-screen($size){
+  @media (min-width: $size + 1px) {
+    @content;
+  }
+}
+
+/* max-width */
+@mixin large-size() {
+  @include max-screen(variables.$large-size) {
+    @content;
+  }
+}
+
+@mixin base-size() {
+  @include max-screen(variables.$base-size) {
+    @content;
+  }
+}
+
+@mixin notebook-base-size() {
+  @include max-screen(variables.$notebook-base-size) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @include max-screen(variables.$tablet) {
+    @content;
+  }
+}
+@mixin small-tablet() {
+  @include max-screen(variables.$small-tablet) {
+    @content;
+  }
+}
+@mixin landscape-mobile() {
+  @include max-screen(variables.$landscape-mobile) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @include max-screen(variables.$mobile) {
+    @content;
+  }
+}
+/* end max-width */
+
+/* min-width */
+@mixin large-size-minW() {
+  @include min-screen(variables.$large-size) {
+    @content;
+  }
+}
+
+@mixin base-size-minW() {
+  @include min-screen(variables.$base-size) {
+    @content;
+  }
+}
+
+@mixin notebook-base-size-minW() {
+  @include min-screen(variables.$notebook-base-size) {
+    @content;
+  }
+}
+
+@mixin tablet-minW() {
+  @include min-screen(variables.$tablet) {
+    @content;
+  }
+}
+@mixin small-tablet-minW() {
+  @include min-screen(variables.$small-tablet) {
+    @content;
+  }
+}
+@mixin landscape-mobile-minW() {
+  @include min-screen(variables.$landscape-mobile) {
+    @content;
+  }
+}
+@mixin mobile-minW() {
+  @include min-screen(variables.$mobile) {
+    @content;
+  }
+}
+/* end min-width */

@@ -1,0 +1,52 @@
+mixin footer(data)
+    -const bobLoves = ['Bob', 'Loves', 'You'];
+    -const pages = ['Каталог', 'История Bob Lee', 'LookBook', 'Контакты'];
+    -const clients = ['Часто задаваемые вопросы', 'Уход за изделиями', 'Условия возврата', 'Политика конфиденциальности', 'Публичная оферта'];
+    footer.footer
+        .container
+            ul.footer__top-list
+                each item in bobLoves
+                    li.footer__top-list-item= item
+            .footer__wrap-logo
+                +image({src: 'images/footer__logo.svg', quickLoad: false, klassImg: 'footer__logo'})
+            .footer__main
+                .footer__help
+                    .footer__title Нужна помощь ?
+                    p.footer__help-content-sub-title Боб всегда на связи и готовы ответить на ваши вопросы и помочь с выбором. Просто напишите нам
+                    a(href='#').button.footer__button-help Написать менеджеру
+                ul.footer__main-content
+                    li.footer__main-block.footer__main-block--pages
+                        .footer__title Страницы
+                        ul.footer__main-list
+                            each item in pages
+                                li.footer__main-list-item
+                                    a(href='#').footer__main-link= item
+                    li.footer__main-block.footer__main-block--clients
+                        .footer__title Клиентам
+                        ul.footer__main-list
+                            each item in clients
+                                li.footer__main-list-item
+                                    a(href='#').footer__main-link= item
+                    li.footer__main-block
+                        .footer__title Социальные сети
+                        ul.footer__soc-list
+                            li.footer__soc-list-item
+                                a(href='#', target='_blank').footer__soc-link
+                                    +image({
+                                        src: 'images/inst.svg',
+                                        quickLoad: false,
+                                        klassImg: 'footer__soc-img'
+                                    })
+                            li.footer__soc-list-item
+                                a(href='#', target='_blank').footer__soc-link
+                                    +image({
+                                        src: 'images/mail.svg',
+                                        quickLoad: false,
+                                        klassImg: 'footer__soc-img'
+                                    })
+            ul.footer__bottom-list
+                li.footer__bottom-item.footer__bottom-item--content ©
+                  span.footer__year 2025
+                  span.footer__bottom-span-bold BOB LEE
+                li.footer__bottom-item
+                    a(href='#' target='_blank') Bas One Studio

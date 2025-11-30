@@ -1,0 +1,120 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.footer {
+  padding: 24px 0;
+  @include tablet{
+    padding: 12px 0;
+  }
+  &__top-list{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 24px;
+    font-family: $font-family-beauty;
+    &-item{
+      font-size: 40px;
+      line-height: 100%;
+    }
+  }
+  &__wrap-logo{
+    margin: 0 0 64px;
+    width: 100%;
+    height: 351px;
+    @include tablet{
+      margin: 0 0 24px;
+      height: 140px;
+    }
+    @include landscape-mobile{
+      height: 88px;
+    }
+  }
+  &__logo{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  &__title{
+    margin: 0 0 4px;
+    font-family: $font-family-bold;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+  }
+  &__help{
+    width: 100%;
+    max-width: 212px;
+    @include tablet{
+      max-width: 100%;
+      margin: 0 0 24px;
+    }
+    &-content-sub-title{
+      margin: 0 0 46px;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 120%;
+      letter-spacing: 0;
+      @include tablet{
+        margin: 0 0 24px;
+      }
+    }
+  }
+  &__main{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    @include tablet{
+      display: block;
+    }
+    &-content{
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      max-width: 684px;
+      @include tablet{
+        max-width: 100%;
+      }
+    }
+    &-block--pages{
+      @include landscape-mobile{
+        display: none;
+      }
+    }
+  }
+  &__soc-link{
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  &__soc-img{
+    width: 100%;
+    height: 100%;
+  }
+  &__soc-list{
+    display: flex;
+    gap: 12px;
+  }
+  &__main-list-item{
+    &:not(:last-child){
+      margin-bottom: 8px;
+    }
+  }
+  &__main-link{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: inherit;
+  }
+  &__bottom-list{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__bottom-item--content{
+    display: flex;
+    gap: 4px;
+  }
+  &__bottom-span-bold{
+    font-family: $font-family-bold;
+  }
+}

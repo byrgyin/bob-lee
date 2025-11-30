@@ -1,0 +1,20 @@
+mixin style(name)
+  if APP_MODE === 'production'
+  link(href=`${name}.css`, rel='stylesheet')
+
+mixin image(obj)
+  -
+    let type = obj.src.split('.');
+    type = type[type.length - 1];
+
+  if type === 'svg'
+    if obj.quickLoad
+     img(src=obj.src, alt='alt', class=obj.klassImg, loading="eager")
+    else
+      img(src=obj.src, alt='alt', class=obj.klassImg, loading="lazy")
+  else
+    picture(class=obj.klassPic)
+      if obj.quickLoad
+        img(src=obj.src, alt='alt', class=obj.klassImg, loading="eager")
+      else
+        img(src=obj.src, alt='alt', class=obj.klassImg, loading="lazy")

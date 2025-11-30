@@ -1,0 +1,30 @@
+mixin header(data)
+  -const headerLink = ['Каталог','Новинки','LookBook','Контакты','Избранное','Профиль']
+  -const bobLoves = ['Bob', 'Loves', 'You']
+  -const headerSocialList = ['Инстаграм','Написать менеджеру']
+  -const headerStoreList = [{classObject:'header__cart-item', srcImg:'images/cart.svg'},{classObject:'header__wish-item', srcImg:'images/wish.svg'},{classObject:'header__account-item', srcImg:'images/account.svg'},]
+  header.header
+    .container.header__container
+        button.header__button-menu
+            span.header__span-line
+        nav.header__nav
+            ul.header__nav-list
+                each item in headerLink
+                    li.header__nav-item
+                        a(href='#').header__nav-link=item
+            .header__nav-bottom
+                ul.header__nav-bottom-list
+                    each item in bobLoves
+                        li.header__nav-bottom-item=item
+                ul.header__nav-bottom-links
+                        each item in headerSocialList
+                            li
+                                a(href='#', target='_blank').header__nav-bottom-link= item
+                                    +image({src:'images/arrow-right.svg',klassImg:'header__nav-bottom-icon'})
+        a(href='/').header__link-logo
+            +image({src:'images/header__logo.svg',klassImg:'header__logo'})
+        ul.header__store-list
+            each item in headerStoreList
+                li(class=['header__store-item', item.classObject])
+                    a(href='#')
+                        +image({src:item.srcImg,klassImg:'header__store-icon'})

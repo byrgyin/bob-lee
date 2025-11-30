@@ -1,0 +1,14 @@
+mixin hero(data)
+    -const slideImages = ['images/hero__one.avif', 'images/hero__two.avif', 'images/hero__three.avif']
+    section.hero
+        .swiper.hero__swiper
+            ul.swiper-wrapper.hero__swiper-wrapper
+                each item in slideImages
+                    li.swiper-slide.hero__swiper-slide
+                        +image({src: item,klassPic:'hero__swiper-pic',klassImg:'hero__swiper-img'})
+        .container.hero__container
+            a(href='#' target='_blank').hero__link Инстаграмм
+                +image({src: 'images/arrow-right.svg', klassImg: 'hero__arrow', quickLoad: false})
+            +image({src: 'images/hero__logo.svg', klassImg: 'hero__logo', quickLoad: false})
+            a(href='#' target='_blank').hero__link Написать менеджеру
+                +image({src: 'images/arrow-right.svg', klassImg: 'hero__arrow', quickLoad: false})
