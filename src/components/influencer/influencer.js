@@ -1,0 +1,1 @@
+import './influencer.scss';

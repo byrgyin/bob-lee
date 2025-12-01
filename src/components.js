@@ -4,3 +4,5 @@ import './components/header/header.js';
 import './components/lookbook/lookbook.js';
 import './components/hero/hero.js';
 import './components/about/about.js';
+import './components/new-arraival/new-arraival.js';
+import './components/influencer/influencer.js';

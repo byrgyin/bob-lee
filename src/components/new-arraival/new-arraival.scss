@@ -1,0 +1,102 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.new-arrival {
+  padding: 24px 0 48px;
+
+  &__title {
+    margin: 0 0 48px;
+    text-align: center;
+    font-family: $font-family-bold;
+    font-size: 40px;
+    line-height: 120%;
+    @include tablet{
+      margin: 0 0 24px;
+      font-size: 24px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 0 0 48px;
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @include landscape-mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    &:first-child {
+      grid-column: 1/3;
+      grid-row: 1/2;
+      @include tablet {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    &:last-child {
+      grid-column: 4/5;
+      @include tablet {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    &:nth-last-child(2) {
+      grid-column: 3/4;
+      @include tablet {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+  }
+
+  &__link-item,
+  &__link-img {
+    display: block;
+  }
+
+  &__link-img {
+    margin: 0 0 8px;
+  }
+
+  &__img,
+  &__pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__bottom-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    @include landscape-mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__count {
+    text-align: right;
+    grid-row: 1;
+    grid-column: 2;
+    color: rgba(140, 140, 140, 1);
+    @include landscape-mobile {
+      text-align: left;
+      grid-row: 1;
+      grid-column: 1;
+    }
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}

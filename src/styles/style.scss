@@ -2,14 +2,17 @@
 @use "variables";
 @use "mixins";
 @use "typography";
-html{
+
+html {
   box-sizing: border-box;
 }
+
 *,
 *:after,
-*:before{
+*:before {
   box-sizing: inherit;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -17,49 +20,58 @@ body {
   font-size: variables.$font-base-size;
   color: variables.$primary-color-1;
 }
+
 .container {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 15px;
 }
+
 input, select {
   border-radius: 0;
   box-shadow: none;
   -webkit-appearance: none;
 }
+
 a,
 button {
   outline: none;
+
   &:focus {
     outline: none;
   }
 }
-button{
+
+button, p {
   background: none;
   border: none;
   outline: none;
   padding: 0;
-  margin:0;
+  margin: 0;
 }
-a{
+
+a {
   color: inherit;
 }
-ul,ol{
+
+ul, ol {
   list-style: none;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
-.container{
+
+.container {
   width: 100%;
   max-width: 1440px;
   padding: 0 24px;
   margin: 0 auto;
-  @include mixins.tablet{
+  @include mixins.tablet {
     padding: 0 12px;
   }
 }
-.button{
+
+.button {
   display: inline-block;
   padding: 11px 20px;
   font-weight: 400;
@@ -68,6 +80,12 @@ ul,ol{
   text-align: center;
   line-height: 120%;
   letter-spacing: 0;
-  color: #fff;
+  color: variables.$primary-color-2;
   background-color: variables.$primary-color-1;
+}
+
+.button--white {
+  color: variables.$primary-color-1;
+  background-color: variables.$primary-color-2;
+  border: 1px solid variables.$primary-color-3;
 }

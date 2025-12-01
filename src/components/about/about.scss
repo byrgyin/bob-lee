@@ -3,5 +3,85 @@
 
 .about{
   background-color: $primary-color-2;
-  padding: 24px;
+  padding: 24px 0;
+  position: relative;
+  overflow: hidden;
+  @include tablet{
+    padding: 12px 0;
+  }
+  &__swiper{
+    overflow: visible;
+  }
+  &__swiper-wrapper{
+    margin: 0 0 24px;
+  }
+  &__swiper-slide{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    height: 728px;
+    text-align: center;
+    &--img{
+      padding: 0;
+    }
+    @include tablet{
+      height: 592px;
+    }
+  }
+  &__slide-pic{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &__slide-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__button-slide{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    @include tablet{
+      display: none;
+    }
+    &--prev{
+      left: 0;
+    cursor: url("images/arrow-prev.png"), pointer;
+    }
+    &--next{
+      right: 0;
+      cursor: url("images/arrow-next.png"), pointer;
+    }
+  }
+  &__wrap-content{
+    margin: auto;
+    max-width: 360px;
+    @include tablet{
+      max-width: 297px;
+    }
+  }
+  &__slide-title{
+    font-family: $font-family-beauty;
+    font-size: 40px;
+    line-height: 100%;
+  }
+  &__slide-sub-title{
+    line-height: 120%;
+  }
+  &__slide-chapter{
+    margin: 0 0 16px;
+    font-family: $font-family-bold;
+    font-size: 24px;
+  }
+  &__swiper-pagination{
+    position: relative;
+    .swiper-pagination-progressbar-fill{
+      background-color: $primary-color-1;
+    }
+  }
 }

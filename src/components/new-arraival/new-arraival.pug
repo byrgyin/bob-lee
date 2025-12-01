@@ -1,0 +1,15 @@
+mixin new-arraival(data)
+  -const product = [{name:'Футболка “My ex is an idiot”',price:'8 999 ₽', count:'(01)',src:'images/item_one.webp'},{name:'Тишка “I’ve never had yeezy 350s”',price:'6500 Р', count:'(01)',src:'images/item_two.webp'},{name:'Тишка “I’ve never had yeezy 350s”',price:'6500 Р', count:'(01)',src:'images/item_two.webp'},{name:'Футболка “My ex is an idiot”',price:'8 999 ₽', count:'(01)',src:'images/item_three.webp'},{name:'Тишка “Get up fucking early Малинов...”',price:'7500 P', count:'(03)',src:'images/item_fore.webp'},{name:'Тишка “90’s R&B”',price:'7000 P', count:'(04)',src:'images/item_five.webp'},];
+  section.new-arrival
+    .container
+        h2.new-arrival__title  Новинки
+        ul.new-arrival__list
+            each item in product
+                li.new-arrival__item
+                    a(href='#').new-arrival__link-img
+                        +image({src:item.src,klassImg:'new-arrival__img',klassPic:'new-arrival__pic'})
+                    .new-arrival__bottom-info
+                        a(href='#').new-arrival__link-item=item.name
+                        .new-arrival__price= item.price
+                        .new-arrival__count= item.count
+        a(href='#').button.button--white.new-arrival__button Перейти к каталогу

@@ -1,4 +1,22 @@
 mixin about(data)
-  -const aboutSlide = [{slideTopTitle:'About Bob Lee',slideChapter:'[ Глава 1 ]',slideText:'Bob Lee (@mister.bob.lee) — концептуальный унисекс бренд, вдохновленный стриткультурой и современным стилем.'},]
+  -const aboutSlide = [{slideTopTitle:'About Bob Lee',slideChapter:'[ Глава 1 ]',slideText:'Bob Lee (@mister.bob.lee) — концептуальный унисекс бренд, вдохновленный стриткультурой и современным стилем.'},{src:'images/chap_one.webp'},{slideTopTitle:'About Bob Lee',slideChapter:'[ Глава 2 ]',slideText:'Bob выражает свободу, яркость, творчество и иронию, предлагая стильную и удобную одежду для людей, которые ценят свободу самовыражения через внешний вид.'},{src:'images/chap_two.webp'},{src:'images/chap_three.webp'},{slideTopTitle:'About Bob Lee',slideChapter:'[ Глава 3 ]',slideText:'Bob предлагает стильную и комфортную унисекс одежду, сочетающую элементы стритстайла и премиальных материалов, что делает ее привлекательной для тех, кто ищет баланс между модой и комфортом. Это идеальный выбор для тех, кто предпочитает не только стиль, но и удобство в повседневной жизни.'},{slideTopTitle:'About Bob Lee',slideBotTitle:'With love, Bob Lee',slideChapter:'[ Глава 4 ]',slideText:'Философия Bob Lee заключается в том, чтобы создавать одежду для людей, которые не боятся выделяться, оставаясь при этом собой. Бренд пропагандирует свободу самовыражения через стиль, разрушая гендерные границы в моде, и предлагает каждому найти свой уникальный путь в мире стритстайла'},{src:'images/chap_fore.webp'},]
   section.about
     .container.about__container
+        .swiper.about__swiper
+            ul.swiper-wrapper.about__swiper-wrapper
+                each item in aboutSlide
+                    if !item.src
+                        li.swiper-slide.about__swiper-slide
+                          .about__slide-title= item.slideTopTitle
+                          .about__wrap-content
+                            .about__slide-chapter= item.slideChapter
+                            p.about__slide-sub-title= item.slideText
+                          if item.slideBotTitle
+                            .about__slide-title.about__slide-title--bottom= item.slideBotTitle
+                    else
+                        li.swiper-slide.about__swiper-slide.about__swiper-slide--img
+                            +image({src: item.src, klassPic: 'about__slide-pic', klassImg: 'about__slide-image'})
+            .swiper-pagination.about__swiper-pagination
+    .about__navigation
+      button.about__button-slide.about__button-slide--prev
+      button.about__button-slide.about__button-slide--next
