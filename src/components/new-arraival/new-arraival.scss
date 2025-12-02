@@ -3,7 +3,9 @@
 
 .new-arrival {
   padding: 24px 0 48px;
-
+  @include tablet{
+    padding: 12px 0;
+  }
   &__title {
     margin: 0 0 48px;
     text-align: center;
@@ -24,6 +26,7 @@
     @include tablet {
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+      margin: 0 0 24px;
     }
     @include landscape-mobile {
       grid-template-columns: repeat(2, 1fr);
@@ -61,9 +64,22 @@
   &__link-img {
     display: block;
   }
+  &__link-item{
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+   &:hover{
+     color: $primary-color-3
+   }
+  }
 
   &__link-img {
     margin: 0 0 8px;
+    overflow: hidden;
+    &:hover {
+      .new-arrival__img{
+        transform: scale(1.2);
+      }
+    }
   }
 
   &__img,
@@ -71,6 +87,9 @@
     display: block;
     width: 100%;
     height: 100%;
+  }
+  &__img{
+    transition: transform 0.3s ease-out;
   }
 
   &__bottom-info {

@@ -105,6 +105,11 @@
     line-height: 120%;
     letter-spacing: 0;
     color: inherit;
+    transition: color 0.3s ease;
+    text-decoration: none !important;
+    &:hover{
+      color: $primary-color-3;
+    }
   }
   &__bottom-list{
     display: flex;
@@ -116,5 +121,13 @@
   }
   &__bottom-span-bold{
     font-family: $font-family-bold;
+  }
+  &__bottom-link{
+    color: inherit;
+    transition: color 0.3s ease;
+    text-decoration: none !important;
+    &:hover{
+      color: $primary-color-3;
+    }
   }
 }

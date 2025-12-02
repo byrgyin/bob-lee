@@ -78,9 +78,9 @@
     font-family: $font-family-bold;
     font-size: 24px;
   }
-  &__swiper-pagination{
+  &__swiper-scrollbar{
     position: relative;
-    .swiper-pagination-progressbar-fill{
+    .swiper-scrollbar-drag{
       background-color: $primary-color-1;
     }
   }

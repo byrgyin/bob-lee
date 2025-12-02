@@ -1,7 +1,19 @@
 mixin influencer(data)
+  - const influencerArray = [{src:'images/influencer__one.webp', name:'Test',city:'Test'},{src:'images/influencer__two.webp', name:'test',city:'test'},{src:'images/influencer__three.webp', name:'test',city:'test'},{src:'images/influencer__fore.webp', name:'test',city:'test'},{src:'images/influencer__five.webp', name:'Tim',city:'Москва'},{src:'images/influencer__six.webp', name:'test',city:'test'},{src:'images/influencer__seven.webp', name:'test',city:'test'},{src:'images/influencer__eight.webp', name:'test',city:'test'},{src:'images/influencer__nine.webp', name:'test',city:'test'},{src:'images/influencer__nine.webp', name:'test',city:'test'},{src:'images/influencer__nine.webp', name:'test',city:'test'},{src:'images/influencer__nine.webp', name:'test',city:'test'}]
   section.influencer
     .container.influencer__container
         .influencer__head
-            h2.influence__title Инфлюенсеры
-            p.influence__sub-title У нас много друзей по всему миру и мы рады, когда люди распространяют влияние Bob`a по разным регионам и делятся красивой одеждой с миром.
-            a(href='#') Связаться с нами
+            h2.influencer__title Инфлюенсеры
+            p.influencer__sub-title У нас много друзей по всему миру и мы рады, когда люди распространяют влияние Bob`a по разным регионам и делятся красивой одеждой с миром.
+            a(href='#').influencer__link Связаться с нами
+                +image({src: 'images/arrow-right.svg', klassImg: 'influencer__arrow', quickLoad: false})
+        .swiper.influencer__swiper
+            ul.swiper-wrapper.influencer__swiper-wrapper
+                each item,$index in influencerArray
+                    li.swiper-slide.influencer__swiper-slide
+                        .influencer__slide-top
+                            span.influencer__slide-count (#{($index + 1) < 10 ? '0' : ''}#{$index + 1})
+                            span.influencer__slide-name= item.name
+                            span.influencer__slide-city= item.city
+                        +image({src:item.src, klassImg:'influencer__slide-img',klassPic:'influencer__slide-pic'})
+            .swiper-scrollbar.influencer__swiper-scrollbar

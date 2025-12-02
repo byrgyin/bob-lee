@@ -1,1 +1,203 @@
-.influencer{}
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.influencer {
+  padding: 24px 0;
+  @include tablet {
+    padding: 12px 0;
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+    margin: 0 0 32px;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-bold;
+    font-size: 40px;
+    line-height: 120%;
+    @include tablet {
+      font-size: 32px;
+    }
+    @include mobile {
+      margin: 0 0 8px;
+    }
+  }
+
+  &__sub-title {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 448px;
+    @include mobile {
+      margin: 0 0 32px;
+      max-width: 100%;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-self: flex-end;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $primary-color-3;
+      .influencer__arrow{
+        opacity: .5;
+      }
+    }
+  }
+
+  &__swiper-wrapper {
+    display: flex;
+    margin: 0 0 24px;
+    padding: 0 0 24px;
+    gap: 24px;
+    align-items: flex-end;
+    height: 630px;
+    overflow-x: scroll;
+    @include mobile-minW {
+      transform: unset !important;
+    }
+    @include small-tablet {
+      height: 537px;
+    }
+    @include mobile {
+      height: auto;
+      gap: unset;
+      overflow: visible;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(191, 191, 191);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #000;
+      border-radius: 10px;
+    }
+  }
+
+  &__swiper-slide {
+    flex-basis: 1%;
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+    transition: flex-basis ease 1s;
+    cursor: pointer;
+    @include mobile {
+      flex-basis: auto;
+      height: 492px;
+    }
+
+    &--active {
+      flex-basis: 32.8%;
+      @include small-tablet {
+        flex-basis: 50%;
+      }
+      @include mobile {
+        flex-basis: auto;
+      }
+
+      .influencer__slide-city,
+      .influencer__slide-name {
+        opacity: 1;
+      }
+
+      .influencer__slide-img,
+      .influencer__slide-pic {
+        height: 570px;
+        @include small-tablet {
+          height: 500px;
+        }
+        @include mobile {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__swiper-slide.swiper-slide-active {
+    @include mobile {
+      .influencer__slide-city,
+      .influencer__slide-name {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__slide-pic,
+  &__slide-img {
+    display: block;
+    width: 100%;
+    height: 117px;
+    transition: height 1s ease;
+    @include mobile {
+      height: 100%;
+    }
+  }
+
+  &__slide-img {
+    object-fit: cover;
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 10px;
+    filter: invert(1);
+    transition: opacity 0.3s ease;
+  }
+
+  &__slide-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 12px;
+  }
+
+  &__slide-count {
+    color: $primary-color-3
+  }
+
+  &__slide-name {
+    font-family: $font-family-bold;
+  }
+
+  &__slide-name,
+  &__slide-city {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  &__swiper-pagination {
+    position: relative;
+
+    .swiper-pagination-progressbar-fill {
+      background-color: #000;
+    }
+  }
+
+  &__swiper-scrollbar {
+    display: none;
+    position: relative;
+    @include mobile {
+      display: block;
+    }
+
+    .swiper-scrollbar-drag {
+      background-color: $primary-color-1;
+    }
+  }
+}

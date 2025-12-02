@@ -18,7 +18,18 @@ body {
   padding: 0;
   font-family: variables.$font-family-base;
   font-size: variables.$font-base-size;
+  line-height: 120%;
   color: variables.$primary-color-1;
+  &::-webkit-scrollbar {
+    width: 5px; /* Ширина для вертикального скроллбара */
+  }
+  &::-webkit-scrollbar-track {
+    background: rgb(191, 191, 191);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 10px;
+  }
 }
 
 .container {
@@ -82,10 +93,19 @@ ul, ol {
   letter-spacing: 0;
   color: variables.$primary-color-2;
   background-color: variables.$primary-color-1;
+  transition: background-color 0.1s ease, color 0.1s ease;
+  text-decoration: none !important;
+  &:hover{
+    background-color: variables.$primary-color-3;
+  }
 }
 
 .button--white {
   color: variables.$primary-color-1;
   background-color: variables.$primary-color-2;
   border: 1px solid variables.$primary-color-3;
+  &:hover{
+    color: variables.$primary-color-2;
+    background-color: variables.$primary-color-3;
+  }
 }
