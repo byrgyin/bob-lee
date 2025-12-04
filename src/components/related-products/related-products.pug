@@ -1,0 +1,20 @@
+mixin related-products(data)
+  -const products = [{src:'images/prod__one.webp',name:'Тишка “Do you want a bite?”',price:'6500 P', count:'(01)'},{src:'images/prod__two.webp',name:'Тишка “90’s R&B”',price:'7000 P', count:'(02)'},{src:'images/prod__three.webp',name:'Тишка “My ex is an idiot”',price:'7000 P', count:'(03)'},{src:'images/prod__fore.webp',name:'Тишка “Don’t Jump”',price:'6500 P', count:'(04)'},]
+    section.related-products
+        .container
+          h2.related-products__title Вам может понравиться
+          .swiper.related-products__swiper
+            ul.swiper-wrapper.related-products__swiper-wrapper
+                each item in products
+                    li.swiper-slide.related-products__item
+                        a(href='/product.html').related-products__link-img
+                            +image({
+                                src: item.src,
+                                klassImg: 'related-products__img',
+                                klassPic: 'related-products__pic'
+                            })
+                        .related-products__info
+                            a(href='/product.html').related-products__link=item.name
+                            span.related-products__price=item.price
+                            span.related-products__count=item.count
+            .swiper-scrollbar.related-products__swiper-scrollbar

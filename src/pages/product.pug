@@ -1,0 +1,14 @@
+extends ../pug/layout.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/related-products/related-products.pug
+include ../components/product-main/product-main.pug
+
+block title 
+  title product
+block content
+  +breadcrumbs([
+      {link:true, linkContent:'/', text:'Главная'},
+      {link:true, linkContent: '/', text:'Каталог'},
+      {link:false, text:'Тишка “7/11”'}])
+  +product-main
+  +related-products

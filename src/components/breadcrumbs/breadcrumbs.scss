@@ -1,0 +1,30 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.breadcrumbs{
+  padding: 100px 0 0 0;
+  &__container{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    @include landscape-mobile{
+      justify-content: flex-start;
+    }
+  }
+  &__item{
+    &:not(:last-child){
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      &:after{
+        content: "/";
+      }
+    }
+  }
+  a#{&}__link{
+    color: $primary-color-1;
+  }
+  span#{&}__link{
+    color: $primary-color-3;
+    cursor: default;
+  }
+}

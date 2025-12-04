@@ -6,10 +6,10 @@ mixin new-arraival(data)
         ul.new-arrival__list
             each item in product
                 li.new-arrival__item
-                    a(href='#').new-arrival__link-img
+                    a(href='/product.html').new-arrival__link-img
                         +image({src:item.src,klassImg:'new-arrival__img',klassPic:'new-arrival__pic'})
                     .new-arrival__bottom-info
-                        a(href='#').new-arrival__link-item=item.name
+                        a(href='/product.html').new-arrival__link-item=item.name
                         .new-arrival__price= item.price
                         .new-arrival__count= item.count
         a(href='#').button.button--white.new-arrival__button Перейти к каталогу

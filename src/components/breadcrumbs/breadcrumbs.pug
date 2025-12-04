@@ -1,0 +1,9 @@
+mixin breadcrumbs(data)
+    section.breadcrumbs
+        ul.container.breadcrumbs__container
+            each item in data
+                li.breadcrumbs__item
+                    if item.link
+                        a(href=item.linkContent).breadcrumbs__link=item.text
+                    else
+                        span.breadcrumbs__link=item.text
