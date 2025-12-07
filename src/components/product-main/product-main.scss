@@ -95,6 +95,11 @@
     width: 100%;
     height: 100%;
   }
+  &__img{
+    @include mobile{
+      object-fit: cover;
+    }
+  }
   &__add-product{
     display: flex;
     align-items: center;
