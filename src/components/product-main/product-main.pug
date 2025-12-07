@@ -34,23 +34,24 @@ mixin product-main(data)
                     ul.sizes-block__list
                         each item in sizes
                             lil.sizes-block__item=item
-                .product-main__add-prodcut
-                    button.button.add-prodcut__button Добавить в корзину
-                    button.add-prodcut__wish <?xml version="1.0" encoding="UTF-8"?>
-                    <svg fill="none" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m8.9108 3.4491c0.98925-1.6713 1.995-3.2086 3.8026-3.4186 3.3941-0.3963 6.5156 3.1376 4.8018 6.6163-0.4878 0.99074-1.481 2.1692-2.5796 3.3253-1.2056 1.2694-2.54 2.5134-3.4746 3.4565l-2.5488 2.5714-2.1064-2.0619c-2.5342-2.4821-6.6664-5.6063-6.8027-9.4768-0.095214-2.7115 2.0083-4.4486 4.4282-4.4174 2.1621 0.029797 3.6687 1.7339 4.4795 3.4052z" clip-rule="evenodd" fill="#000" fill-rule="evenodd"/>
-                    </svg>
+                .product-main__add-product
+                    button.button.add-product__button Добавить в корзину
+                    button.add-product__wish
+                        <?xml version="1.0" encoding="UTF-8"?>
+                            <svg fill="none" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m8.9108 3.4491c0.98925-1.6713 1.995-3.2086 3.8026-3.4186 3.3941-0.3963 6.5156 3.1376 4.8018 6.6163-0.4878 0.99074-1.481 2.1692-2.5796 3.3253-1.2056 1.2694-2.54 2.5134-3.4746 3.4565l-2.5488 2.5714-2.1064-2.0619c-2.5342-2.4821-6.6664-5.6063-6.8027-9.4768-0.095214-2.7115 2.0083-4.4486 4.4282-4.4174 2.1621 0.029797 3.6687 1.7339 4.4795 3.4052z" clip-rule="evenodd" fill="#000" fill-rule="evenodd"/>
+                            </svg>
 
                 ul.product-main__faq-prod
                     li.faq-prod__item
-                        button Уход
+                        button.faq-prod__button Уход
                             +image({src:'images/arrow-down.svg'})
                         .faq-prod__richtext
                             ul
                                 each item in careClothes
                                     li=item
                     li.faq-prod__item
-                        button Оплата и доставка
+                        button.faq-prod__button Оплата и доставка
                             +image({src: 'images/arrow-down.svg'})
                         .faq-prod__richtext
                             p Доставка осуществляется при помощи курьерской службой СДЭК, которая осуществляет доставку по всей территории России*.

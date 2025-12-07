@@ -60,19 +60,19 @@
 }
 
 @mixin base-size-minW() {
-  @include min-screen(variables.$base-size) {
+  @include min-screen(variables.$base-size - 1px) {
     @content;
   }
 }
 
 @mixin notebook-base-size-minW() {
-  @include min-screen(variables.$notebook-base-size) {
+  @include min-screen(variables.$notebook-base-size - 1px) {
     @content;
   }
 }
 
 @mixin tablet-minW() {
-  @include min-screen(variables.$tablet) {
+  @include min-screen(variables.$tablet - 1px) {
     @content;
   }
 }

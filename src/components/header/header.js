@@ -1,5 +1,5 @@
 import "./header.scss";
-console.log('dsfsafsda');
+
 const header = document.querySelector('.header'),
     nav = document.querySelector('.header__nav'),
     bodyForClose = document.querySelector('body'),
@@ -39,3 +39,6 @@ const resizeObserver = new ResizeObserver(entries => {
 });
 
 resizeObserver.observe(bodyForClose);
+if(window.location.pathname !== '/') {
+ header.classList.add('header--not-hp');
+}

@@ -14,7 +14,8 @@
     padding: 12px 0;
   }
 
-  &--scrolled {
+  &--scrolled,
+  &--not-hp{
     background-color: $primary-color-2;
 
     .header__nav-link, {
@@ -36,7 +37,7 @@
     }
   }
 
-  &--active {
+  &--active{
     background-color: $primary-color-2;
     .header__nav{
       transform: translateX(0);
