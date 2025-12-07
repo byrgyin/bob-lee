@@ -67,19 +67,21 @@ if(document.querySelector('.product-main__thumb-item')){
     },{passive: true});
 }
 // responsive slide
-const galleryWrapper = document.querySelector('.product-main__gallery-list');
-const bodyWatcher = document.body;
+if(document.querySelector('.product-main__gallery-list')){
+    const galleryWrapper = document.querySelector('.product-main__gallery-list');
+    const bodyWatcher = document.body;
 
-const addCSSVariables = () => {
-    const widthGalleryWrapper = galleryWrapper.clientWidth;
-    galleryWrapper.style.setProperty('--slide-width', `${widthGalleryWrapper}px`);
-}
-
-const resizeObserver = new ResizeObserver((entries)=>{
-    for(let entry of entries){
-        if(entry.contentRect.width < 480){
-            addCSSVariables();
-        }
+    const addCSSVariables = () => {
+        const widthGalleryWrapper = galleryWrapper.clientWidth;
+        galleryWrapper.style.setProperty('--slide-width', `${widthGalleryWrapper}px`);
     }
-});
-resizeObserver.observe(bodyWatcher);
+
+    const resizeObserver = new ResizeObserver((entries)=>{
+        for(let entry of entries){
+            if(entry.contentRect.width < 480){
+                addCSSVariables();
+            }
+        }
+    });
+    resizeObserver.observe(bodyWatcher);
+}

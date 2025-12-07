@@ -1,0 +1,19 @@
+mixin not-found(data)
+  -const textLink = ['Инстаграм','Написать Bob`у']
+  section.not-found
+    +image({src:'images/hero__one.avif',quickLoad:true,klassPic:'not-found__bg',klassImg:'not-found__img'})
+    +image({src:'images/hero__one--mobile.avif',quickLoad:true,klassPic:'not-found__bg not-found__bg--mobile',klassImg:'not-found__img'})
+    .container.not-found__container
+        .not-found__content-block
+            h1.not-found__title 404
+            p.not-found__sub-title Страница не найдена, попробуйте обновить страницу или перейдите на
+             |
+             |
+             a(href='/') главную страницу
+             |
+             | в меню
+        ul.not-found__list
+            each item in textLink
+                li
+                    a(href='#').not-found__link=item
+                        +image({src: 'images/arrow-right.svg', klassImg: 'hero__arrow', quickLoad: false})
