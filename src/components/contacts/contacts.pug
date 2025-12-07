@@ -1,0 +1,36 @@
+mixin contacts(data)
+  section.contacts
+    .container
+        h1.contacts__title Контакты
+        .contacts__wrapper
+            .contacts__info
+                h2 По всем вопросам
+                address.contacts__adress
+                    .contacts__adress-block
+                        .contacts__adress-block-span Телефон
+                        a(href='tel:+79772766665') +7 (977) 276-66-65
+                    .contacts__adress-block
+                        .contacts__adress-block-span Электронная почта
+                        a(href='mailto:mrboblee@mail.ru') mrboblee@mail.ru
+                    .contacts__adress-block
+                        .contacts__adress-block-span Инстаграм*
+                        a(href='https://www.instagram.com/mister.bob.lee/' target='_blank') @mister.bob.lee
+                        span *запрещённая в РФ соцсеть компании Meta
+                hr
+                h2 По всем вопросам
+                address.contacts__adress
+                    .contacts__adress-block
+                        h3.contacts__adress-block-name-store YAUZA STORE
+                        .contacts__adress-block-span Адрес
+                        a(href='https://yandex.ru/maps/-/CLgPBS9W' target='_blank') г. Москва, Лучников пер. 4с1 (м. Китай-Город)
+                        .contacts__adress-block-span Рабочий график
+                        .contacts__adress-block-hours 12:00 - 21:00, без выходных
+                    .contacts__adress-block
+                        h3.contacts__adress-block-name-store ODMO
+                        .contacts__adress-block-span Адрес
+                        a(href='https://yandex.ru/maps/-/CLgPB6p5' target='_blank') г. Москва, Большой Трехсвятительский  переулок, 2/1 стр 1
+                        .contacts__adress-block-hours 11:00 - 21:00, без выходных
+
+
+            +image({src:'images/contacts__map.avif',klassPic:'contacts__map',klassImg:'contacts__img'})
+            +image({src:'images/contacts__img.avif',klassPic:'contacts__pic',klassImg:'contacts__img'})

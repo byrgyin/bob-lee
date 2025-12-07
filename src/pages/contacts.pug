@@ -1,0 +1,11 @@
+extends ../pug/layout.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/contacts/contacts.pug
+
+block title 
+    title contacts
+block content
+    +breadcrumbs([
+        {link: true, linkContent: '/', text: 'Главная'},
+        {link: false, text: 'Контакты'}])
+    +contacts

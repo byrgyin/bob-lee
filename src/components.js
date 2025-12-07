@@ -10,3 +10,4 @@ import './components/breadcrumbs/breadcrumbs.js';
 import './components/related-products/related-products.js';
 import './components/product-main/product-main.js';
 import './components/not-found/not-found.js';
+import './components/contacts/contacts.js';
