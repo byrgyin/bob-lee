@@ -6,6 +6,12 @@
     display: grid;
     grid-template-columns:repeat(3,1fr);
     grid-gap: 24px;
+    @include small-tablet{
+      grid-template-columns:repeat(2,1fr);
+    }
+    @include landscape-mobile{
+      grid-template-columns:repeat(1,1fr);
+    }
   }
   &__title{
     margin: 0 0 46px;
@@ -15,14 +21,151 @@
     line-height: 120%;
     letter-spacing: 0;
     text-align: center;
+    @include tablet{
+      font-size: 32px;
+      margin: 0 0 24px;
+    }
   }
   &__map,
   &__pic{
     width: 100%;
     height: 599px;
+    @include landscape-mobile{
+      height: 469px;
+    }
+  }
+  &__map{
+    filter: grayscale(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before{
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid $primary-color-1;
+      border-right: none;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    &:has(ymaps){
+      &:before{
+        display: none;
+      }
+    }
+  }
+  &__pic{
+    @include small-tablet{
+      display: none;
+    }
   }
   &__img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+  }
+  &__info-title{
+    margin: 0 0 16px;
+    font-family: $font-family-bold;
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+    @include tablet{
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+  }
+  &__adress{
+    font-style: normal;
+  }
+  &__adress-block{
+    &:not(:last-child){
+      margin: 0 0 8px;
+    }
+    &--hours{
+      &:not(:last-child){
+        margin: 0 0 16px;
+      }
+    }
+  }
+  &__adress-block-name-store{
+    margin: 0 0 8px;
+    font-family: $font-family-bold;
+    font-size: 14px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+  &__adress-block-span{
+    margin: 0 0 4px;
+    color: $primary-color-3;
+  }
+  &__adress-block-link{
+    display: block;
+    font-family: $font-family-bold;
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+    @include tablet{
+      font-size: 20px;
+    }
+  }
+  &__adress-block-alert{
+    font-size: 10px;
+    color: $primary-color-3;
+  }
+  &__adress-wrapper{
+    &:not(:last-child){
+      margin: 0 0 8px;
+    }
+  }
+  hr{
+    margin: 16px 0;
+    height: 1px;
+    background-color: $primary-color-1;
+    border: none;
+  }
+  &__custom-placemark{
+    position: relative;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px 0 0;
+    background-color: $primary-color-2;
+    border-radius: 100px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    &-icon{
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    &-title{
+      font-family: $font-family-bold;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0;
+      color: $primary-color-1;
+      white-space: nowrap;
+    }
+  }
+  ymaps.ymaps-2-1-79-placemark-overlay.ymaps-2-1-79-user-selection-none{
+    box-sizing: border-box;
+    width: auto !important;
+    height: auto !important;
+    display: block;
+  }
+  ymaps .ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none{
+    display: none;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
