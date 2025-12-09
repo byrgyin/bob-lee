@@ -87,6 +87,7 @@
     display: grid;
     grid-template-columns:repeat(3,1fr);
     grid-gap: 24px;
+    width: 100%;
     @include mobile{
       display: flex;
       overflow: auto;
