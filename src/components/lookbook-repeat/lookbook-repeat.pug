@@ -1,0 +1,20 @@
+mixin lookbook-repeat(data)
+    section.lookbook-repeat
+        if !data.one_wide && data.src
+            .container.lookbook-repeat__container
+                +image({src: data.src, klassPic: 'lookbook-repeat__thin-pic', klassImg: 'lookbook-repeat__img'})
+        if data.one_wide && data.src
+            .container.lookbook-repeat__container
+                +image({src: data.src, klassPic: 'lookbook-repeat__wide-pic', klassImg: 'lookbook-repeat__img'})
+        if data.two && data.arraySrc
+            .container.lookbook-repeat__container
+                ul.lookbook-repeat__two-list.lookbook-repeat__custom-width
+                    each item in data.arraySrc
+                        li.lookbook-repeat__two-item
+                            +image({src:item, klassPic: 'lookbook-repeat__two-pic', klassImg: 'lookbook-repeat__img'})
+        if data.three && data.arraySrc
+            .container.lookbook-repeat__container
+                ul.lookbook-repeat__three-list.lookbook-repeat__custom-width
+                    each item in data.arraySrc
+                        li.lookbook-repeat__three-item
+                            +image({src: item, klassPic: 'lookbook-repeat__three-pic', klassImg: 'lookbook-repeat__img'})

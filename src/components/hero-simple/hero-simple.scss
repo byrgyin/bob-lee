@@ -1,0 +1,82 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.hero-simple{
+  position: relative;
+  padding: 576px 0 24px;
+  @include landscape-mobile{
+    padding: 541px 0 24px;
+  }
+  &__bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.4);
+    }
+    &-pic{
+      display: block;
+      @include landscape-mobile{
+        display: none;
+      }
+      &--mobile{
+        display: none;
+        @include landscape-mobile{
+          display: block;
+        }
+      }
+    }
+    &-pic,
+    &-img{
+      width: 100%;
+      height: 100%;
+    }
+    &-img{
+      object-fit: cover;
+    }
+  }
+  &__container{
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns:max-content 1fr max-content;
+    grid-gap: 41px;
+    align-items: flex-end;
+    text-align: center;
+    color: $primary-color-2;
+    @include tablet{
+      display: block;
+    }
+  }
+  &__title{
+    font-family: $font-family-beauty;
+    font-weight: 400;
+    font-size: 200px;
+    line-height: 120%;
+    letter-spacing: 0;
+    @include notebook-base-size{
+      font-size: 100px;
+    }
+    @include landscape-mobile{
+      font-size: 64px;
+    }
+    @media (max-width:360px) {
+      font-size: 50px;
+    }
+  }
+  &__link{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include tablet{
+      display: none;
+    }
+  }
+}

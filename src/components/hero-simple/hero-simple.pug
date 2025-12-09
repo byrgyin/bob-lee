@@ -1,0 +1,11 @@
+mixin hero-simple(data)
+  section.hero-simple
+    .hero-simple__bg
+        +image({src:'images/hero_simple_desk.webp',klassPic:'hero-simple__bg-pic',klassImg:'hero-simple__bg-img',quickLoad:true})
+        +image({src:'images/hero__one--mobile.avif',klassPic:'hero-simple__bg-pic hero-simple__bg-pic--mobile',klassImg:'hero-simple__bg-img',quickLoad:true})
+    .container.hero-simple__container
+        a(href='#' target='_blank').hero-simple__link Инстаграм
+            +image({src:'images/arrow-right.svg'})
+        h1.hero-simple__title Lookbook `25
+        a(href='#' target='_blank').hero-simple__link Написать Bob`у
+            +image({src:'images/arrow-right.svg'})

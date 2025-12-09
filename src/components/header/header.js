@@ -45,3 +45,6 @@ if(window.location.pathname !== '/') {
 if(window.location.pathname.includes('not-found')) {
     header.classList.remove('header--not-hp');
 }
+if(window.location.pathname.includes('lookbook')) {
+    header.classList.remove('header--not-hp');
+}

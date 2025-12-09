@@ -1,0 +1,18 @@
+extends ../pug/layout.pug
+include ../components/hero-simple/hero-simple.pug
+include ../components/lookbook-repeat/lookbook-repeat.pug
+
+block title 
+  title lookbook
+block content
+    +hero-simple
+    +lookbook-repeat({one_wide:false, src:'images/lookbook-repeat__wide-thin.webp'})
+    +lookbook-repeat({one_wide:true, src:'images/lookbook-repeat__wide.webp'})
+    +lookbook-repeat({two:true, arraySrc:['images/lookbook-repeat__two_one.webp', 'images/lookbook-repeat__two_two.webp']})
+    +lookbook-repeat({one_wide:true, src:'images/lookbook-repeat__wide.webp'})
+    +lookbook-repeat({one_wide:false, src:'images/lookbook-repeat__wide-thin-two.webp'})
+    +lookbook-repeat({three:true, arraySrc:['images/lookbook-repeat__three_one-one.webp', 'images/lookbook-repeat__three_one-two.webp','images/lookbook-repeat__three_one-three.webp']})
+    +lookbook-repeat({one_wide:true, src:'images/lookbook-repeat__wide_down.webp'})
+    +lookbook-repeat({two: true, arraySrc: ['images/lookbook-repeat__two_yellow_one.webp', 'images/lookbook-repeat__two_yellow_two.webp']})
+    +lookbook-repeat({one_wide: false, src: 'images/lookbook-repeat__wide-pink.webp'})
+    +lookbook-repeat({three: true, arraySrc: ['images/lookbook-repeat__three_two-one.webp', 'images/lookbook-repeat__three_two-two.webp', 'images/lookbook-repeat__three_two-tree.webp']})

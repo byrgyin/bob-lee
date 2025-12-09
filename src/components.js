@@ -11,3 +11,5 @@ import './components/related-products/related-products.js';
 import './components/product-main/product-main.js';
 import './components/not-found/not-found.js';
 import './components/contacts/contacts.js';
+import './components/hero-simple/hero-simple.js';
+import './components/lookbook-repeat/lookbook-repeat.js';

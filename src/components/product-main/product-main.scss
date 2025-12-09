@@ -38,8 +38,8 @@
       scroll-snap-type: x mandatory;
     }
     &::-webkit-scrollbar {
-      width: 4px; /* Ширина для вертикального скроллбара */
-      height: 4px;
+      width: 2px; /* Ширина для вертикального скроллбара */
+      height: 2px;
     }
     &::-webkit-scrollbar-track {
       background: rgb(191, 191, 191);
