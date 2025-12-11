@@ -1,0 +1,9 @@
+mixin new-product(data)
+  section.new-product
+    .container
+        h1.new-product__title Новинки
+        ul.new-product__list
+            each item in data
+                li.new-product__item
+                    +cardProdcut(item)
+        button.new-product__loadmore.button.button--white  Показать ещё

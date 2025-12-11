@@ -1,6 +1,16 @@
 mixin style(name)
-  if APP_MODE === 'production'
-  link(href=`${name}.css`, rel='stylesheet')
+    if APP_MODE === 'production'
+    link(href=`${name}.css`, rel='stylesheet')
+
+mixin cardProdcut(obj)
+    .card
+        a(href='/product.html').card__link-img
+            +image({src: obj.src, klassImg: 'card__img', klassPic: 'card__pic'})
+        .card__bottom-info
+            a(href='/product.html').card__link-item=obj.name
+            .card__price= obj.price
+            .card__count= obj.count
+
 
 mixin image(obj)
     -

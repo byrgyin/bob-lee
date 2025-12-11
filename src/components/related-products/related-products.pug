@@ -7,14 +7,5 @@ mixin related-products(data)
             ul.swiper-wrapper.related-products__swiper-wrapper
                 each item in products
                     li.swiper-slide.related-products__item
-                        a(href='/product.html').related-products__link-img
-                            +image({
-                                src: item.src,
-                                klassImg: 'related-products__img',
-                                klassPic: 'related-products__pic'
-                            })
-                        .related-products__info
-                            a(href='/product.html').related-products__link=item.name
-                            span.related-products__price=item.price
-                            span.related-products__count=item.count
+                        +cardProdcut(item)
             .swiper-scrollbar.related-products__swiper-scrollbar

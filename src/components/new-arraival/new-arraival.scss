@@ -59,60 +59,6 @@
       }
     }
   }
-
-  &__link-item,
-  &__link-img {
-    display: block;
-  }
-  &__link-item{
-    text-decoration: none !important;
-    transition: color 0.3s ease;
-   &:hover{
-     color: $primary-color-3
-   }
-  }
-
-  &__link-img {
-    margin: 0 0 8px;
-    overflow: hidden;
-    &:hover {
-      .new-arrival__img{
-        transform: scale(1.2);
-      }
-    }
-  }
-
-  &__img,
-  &__pic {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  &__img{
-    transition: transform 0.3s ease-out;
-  }
-
-  &__bottom-info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    @include landscape-mobile {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-
-  &__count {
-    text-align: right;
-    grid-row: 1;
-    grid-column: 2;
-    color: rgba(140, 140, 140, 1);
-    @include landscape-mobile {
-      text-align: left;
-      grid-row: 1;
-      grid-column: 1;
-    }
-  }
-
   &__button {
     display: block;
     margin: 0 auto;

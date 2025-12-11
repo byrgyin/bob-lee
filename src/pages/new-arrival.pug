@@ -1,0 +1,24 @@
+extends ../pug/layout.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/new-product/new-product.pug
+
+block title 
+  title new-arrival
+block content
+    +breadcrumbs([
+        {link: true, linkContent: '/', text: 'Главная'},
+        {link: false, text: 'Новинки'}])
+    +new-product([
+        {src:'images/new-product__1.avif',name:'Тишка “Garlic bread”',price:'8 999 ₽',count:'(01)'},
+        {src:'images/new-product__2.avif',name:'Тишка “Get up fucking early Электрик”',price:'7500 P',count:'(02)'},
+        {src:'images/new-product__3.avif',name:'Тишка “Living my Life”',price:'7000 P',count:'(06)'},
+        {src:'images/new-product__4.avif',name:'Тишка “Garlic bread”',price:'6500 P',count:'(08)'},
+        {src:'images/new-product__5.avif',name:'Тишка “My ex is an idiot”',price:'7000 P',count:'(10)'},
+        {src:'images/new-product__6.avif',name:'Тишка “Don’t Jump”',price:'6500 P',count:'(01)'},
+        {src:'images/new-product__7.avif',name:'Тишка “My ex is an idiot”',price:'7000 P',count:'(10)'},
+        {src:'images/new-product__8.avif',name:'Тишка “Don’t Jump”',price:'6500 P',count:'(01)'},
+        {src:'images/new-product__9.avif',name:'Тишка “Don’t Jump”',price:'8 999 ₽',count:'(01)'},
+        {src:'images/new-product__10.avif',name:'Тишка “Don’t Jump”',price:'6500 P',count:'(01)'},
+        {src:'images/new-product__11.avif',name:'Тишка “My ex is an idiot”',price:'7000 P',count:'(10)'},
+        {src:'images/new-product__12.avif',name:'Тишка “90’s R&B”',price:'7000 P',count:'(04)'},
+    ])
