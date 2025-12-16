@@ -14,3 +14,4 @@ import './components/contacts/contacts.js';
 import './components/hero-simple/hero-simple.js';
 import './components/lookbook-repeat/lookbook-repeat.js';
 import './components/new-product/new-product.js';
+import './components/catalog/catalog.js';

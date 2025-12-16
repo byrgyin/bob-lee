@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.catalog{
+  padding: 24px 0;
+  &__title{
+    margin: 0 0 24px;
+    font-family: $font-family-bold;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  &__wrapper{
+    display: grid;
+    grid-template-columns: minmax(50px,330px) 1fr;
+    grid-gap: 24px;
+  }
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 24px;
+  }
+}

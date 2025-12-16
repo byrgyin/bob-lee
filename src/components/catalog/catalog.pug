@@ -1,0 +1,47 @@
+mixin catalog(data)
+    - const filterCat = [{name:'Футболки',idFor:'cat-tshirts',name_checkbox:'filter_cat',value:'tshirts'},{name:'Лонгслив',idFor:'cat-longsleeve',name_checkbox:'filter_cat',value:'longsleeve'},{name:'Худи',idFor:'cat-hoodie',name_checkbox:'filter_cat',value:'hoodie'},{name:'Брюки',idFor:'cat-trousers',name_checkbox:'filter_cat',value:'trousers'},]
+    - const filterSize = [{name:'O',idFor:'size-o',value:'o'},{name:'OS',idFor:'size-os',value:'os'},]
+    - const filterColor = [{name:'Черный',idFor:'color-black',value:'black',hex:'#000000'},{name:'Серый',idFor:'color-gray',value:'gray',hex:'#8C8C8C'},{name:'Белый',idFor:'color-white',value:'white',hex:'#FFFFFF'},{name:'Бежевый',idFor:'color-beige',value:'beige',hex:'#F5EDCD'},{name:'Черный',idFor:'color-brown',value:'brown',hex:'#8C3509'},{name:'Розовый',idFor:'color-pink',value:'pink',hex:'#F2B7C9'},]
+    section.catalog
+        .container
+            h1.catalog__title Каталог
+            .catalog__wrapper
+                aside(role="complementary" aria-label="Фильтры товаров").catalog__filter-prod
+                    .filter-prod__head
+                        h2 Фильтры одежды
+                        .filter-prod__find-product Найдено 26 товаров
+                        button.filter-prod__close
+                    form(method="get" action="" aria-label="Форма фильтрации")
+                        fieldset.filter-prod__fieldset(data-filter-type="category")
+                            legend.fieldset__legend Тип одежды
+                                +image({src:'images/arrow-down.svg'})
+                            ul.filter-prod__category-list
+                                each item in filterCat
+                                    li.filter-prod__item
+                                        label(for=item.idFor)
+                                            input(id=item.idFor type='checkbox', name='filter_cat', value=item.value)
+                                            span=item.name
+                        fieldset.filter-prod__fieldset(data-filter-attribute="pa_size")
+                            legend.fieldset__legend Размер
+                                +image({src:'images/arrow-down.svg'})
+                            ul.filter-prod__category-list
+                                each item in filterSize
+                                    li.filter-prod__item
+                                        label(for=item.idFor)
+                                            input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
+                                            span=item.name
+                        fieldset.filter-prod__fieldset(data-filter-attribute="pa_color")
+                            legend.fieldset__legend Цвет
+                                +image({src: 'images/arrow-down.svg'})
+                            ul.filter-prod__category-list
+                                each item in filterColor
+                                    li.filter-prod__item
+                                        label(for=item.idFor)
+                                            input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
+                                            span(style=`background-color: ${item.hex};`)
+                                            span=item.name
+
+                ul.catalog__list
+                    each item in data
+                        li.catalog__item
+                            +cardProdcut(item)
