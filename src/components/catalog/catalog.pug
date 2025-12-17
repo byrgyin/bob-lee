@@ -8,38 +8,45 @@ mixin catalog(data)
             .catalog__wrapper
                 aside(role="complementary" aria-label="Фильтры товаров").catalog__filter-prod
                     .filter-prod__head
-                        h2 Фильтры одежды
+                        h2 Фильтры
                         .filter-prod__find-product Найдено 26 товаров
                         button.filter-prod__close
                     form(method="get" action="" aria-label="Форма фильтрации")
                         fieldset.filter-prod__fieldset(data-filter-type="category")
-                            legend.fieldset__legend Тип одежды
+                            legend.filter-prod__legend Тип одежды
                                 +image({src:'images/arrow-down.svg'})
                             ul.filter-prod__category-list
                                 each item in filterCat
                                     li.filter-prod__item
-                                        label(for=item.idFor)
-                                            input(id=item.idFor type='checkbox', name='filter_cat', value=item.value)
+                                        label.filter-prod__label(for=item.idFor)
+                                            input.filter-prod__input(id=item.idFor type='checkbox', name='filter_cat', value=item.value)
                                             span=item.name
                         fieldset.filter-prod__fieldset(data-filter-attribute="pa_size")
-                            legend.fieldset__legend Размер
+                            legend.filter-prod__legend Размер
                                 +image({src:'images/arrow-down.svg'})
                             ul.filter-prod__category-list
                                 each item in filterSize
                                     li.filter-prod__item
-                                        label(for=item.idFor)
-                                            input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
+                                        label.filter-prod__label(for=item.idFor)
+                                            input.filter-prod__input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
                                             span=item.name
                         fieldset.filter-prod__fieldset(data-filter-attribute="pa_color")
-                            legend.fieldset__legend Цвет
+                            legend.filter-prod__legend Цвет
                                 +image({src: 'images/arrow-down.svg'})
                             ul.filter-prod__category-list
                                 each item in filterColor
                                     li.filter-prod__item
-                                        label(for=item.idFor)
-                                            input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
-                                            span(style=`background-color: ${item.hex};`)
+                                        label.filter-prod__label(for=item.idFor)
+                                            span.filter-prod__color-span(style=`background-color: ${item.hex};`)
                                             span=item.name
+                                            input.filter-prod__input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
+                        fieldset.filter-prod__fieldset(data-filter-type="price")
+                            legend.filter-prod__legend Цена
+                                +image({src: 'images/arrow-down.svg'})
+
+                        .filter-prod__buttons
+                            button.button.filter-prod__button.filter-prod__apply Применить фильтры
+                            button.button.button--white.filter-prod__button.filter-prod__reset Сбросить
 
                 ul.catalog__list
                     each item in data
