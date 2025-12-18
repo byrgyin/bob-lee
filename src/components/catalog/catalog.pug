@@ -40,13 +40,20 @@ mixin catalog(data)
                                             span.filter-prod__color-span(style=`background-color: ${item.hex};`)
                                             span=item.name
                                             input.filter-prod__input(id=item.idFor type='checkbox', name='filter_size', value=item.value)
-                        fieldset.filter-prod__fieldset(data-filter-type="price")
+                        fieldset.filter-prod__fieldset.filter-prod__fieldset-range-price(data-filter-type="price")
                             legend.filter-prod__legend Цена
                                 +image({src: 'images/arrow-down.svg'})
-
+                            .filter-prod__range-price
+                                input(type='number' class='range-price__min-price' value='25' min='1' max='100')
+                                input(type='number' class='range-price__max-price' value='75' min='1' max='100')
+                            .filter-prod__range-slider
+                                input(type='range' class='range-price__min-input' value='25' min='1' max='100')
+                                input(type='range' class='range-price__max-input' value='75' min='1' max='100')
+                                .range-slider__slider
+                                    .range-slider__progress
                         .filter-prod__buttons
-                            button.button.filter-prod__button.filter-prod__apply Применить фильтры
-                            button.button.button--white.filter-prod__button.filter-prod__reset Сбросить
+                            button(type='submit').button.filter-prod__button.filter-prod__apply Применить фильтры
+                            button(type='reset').button.button--white.filter-prod__button.filter-prod__reset Сбросить
 
                 ul.catalog__list
                     each item in data

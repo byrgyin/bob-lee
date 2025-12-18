@@ -92,4 +92,60 @@
     width: 100%;
     white-space: nowrap;
   }
+  &__range-price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input{
+      border: none;
+      outline: none;
+      background: none;
+      color: $primary-color-1;
+      &:first-child{
+        text-align: left;
+      }
+      &:last-child{
+        text-align: right;
+      }
+    }
+  }
+  &__range-slider{
+    display: grid;
+    position: relative;
+    z-index: 5;
+    input{
+      grid-row: 2;
+      grid-column: 1;
+      pointer-events: none;
+      background: transparent;
+      &::-webkit-slider-thumb{
+        pointer-events: auto;
+        appearance: none;
+        width: 8px;
+        height: 8px;
+        background: $primary-color-1;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.range-slider{
+  &__slider{
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: $primary-color-4;
+    transform: translateY(-50%);
+    top: 50%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  &__progress{
+    position: absolute;
+    left: var(--leftOffset);
+    height: 100%;
+    background: $primary-color-1;
+    width: var(--widthProgress);
+    cursor: ew-resize;
+  }
 }
