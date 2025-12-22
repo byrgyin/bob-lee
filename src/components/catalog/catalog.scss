@@ -21,6 +21,12 @@
     grid-template-columns: repeat(3,1fr);
     grid-gap: 24px;
   }
+  &__control-panel{
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: space-between;
+  }
 }
 .filter-prod{
   &__head{
@@ -49,6 +55,13 @@
     margin:  0 0 8px;
     border-bottom: 1px solid $primary-color-1;
     width: 100%;
+    transition: margin-left 0.3s ease;
+    cursor: pointer;
+  }
+  &__wrap-category-list{
+    transition: max-height ease .3s;
+    overflow: hidden;
+    max-height: 0;
   }
   &__category-list{
     padding: 8px 12px;
@@ -142,10 +155,51 @@
   }
   &__progress{
     position: absolute;
-    left: var(--leftOffset);
+    //left: var(--leftOffset);
     height: 100%;
     background: $primary-color-1;
-    width: var(--widthProgress);
+    //width: var(--widthProgress);
     cursor: ew-resize;
+  }
+}
+.control-panel{
+  &__open-filter{
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__open-filter,
+  &__open-sort{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+  &__find-product{
+    color: $primary-color-3;
+  }
+  &__wrapper-sort{
+    position: relative;
+  }
+  &__wrapper-sort-list{
+    position: absolute;
+    top: 44px;
+    left: 0;
+    z-index: 5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height ease .3s;
+  }
+  &__sort-list{
+    padding: 12px 16px;
+    border: 1px solid $primary-color-1;
+    background: $primary-color-2;
+  }
+  &__sort-item{
+    &:not(:last-child){
+      margin: 0 0 8px;
+    }
+  }
+  &__sort-btn{
+    white-space: nowrap;
   }
 }

@@ -6,7 +6,10 @@ if (document.querySelector('.filter-prod__range-price')) {
         minPriceInput = slider.querySelector('.range-price__min-price'),
         maxPriceInput = slider.querySelector('.range-price__max-price'),
         minInput = slider.querySelector('.range-price__min-input'),
-        maxInput = slider.querySelector('.range-price__max-input');
+        maxInput = slider.querySelector('.range-price__max-input'),
+        form = document.querySelector('.catalog__filter-prod form'),
+        legendBtn = document.querySelectorAll('.filter-prod__legend'),
+        sortBtn = document.querySelector('.control-panel__open-sort');
 
     let isDragging = false;
     let startOffsetX;
@@ -22,8 +25,8 @@ if (document.querySelector('.filter-prod__range-price')) {
 
       const minOffset = parseInt(((minValue - minInput.min)/range) * 100);
 
-      slider.style.setProperty('--widthProgress', `${width}%`);
-      slider.style.setProperty('--leftOffset', `${minOffset}%`);
+        progress.style.width = `${width}%`;
+        progress.style.left = `${minOffset}%`;
       minPriceInput.value = minValue;
       maxPriceInput.value = maxValue;
     };
@@ -78,10 +81,22 @@ if (document.querySelector('.filter-prod__range-price')) {
     document.addEventListener('mousemove', (e) => {
         if(isDragging) {
             const sliderRect = slider.getBoundingClientRect();
+            const progressWidth = parseFloat(progress.style.width || 0);
 
             let newLeft = ((e.clientX - sliderRect.left - startOffsetX)/sliderRect.width) * 100;
-            slider.style.setProperty('--leftOffset', `${newLeft}%`);
 
+
+            newLeft = Math.min(Math.max(newLeft,0), 100 - progressWidth);
+
+            progress.style.left = `${newLeft}%`
+
+            const range = maxInput.max - minInput.min;
+            const newMin = Math.round((newLeft/100)*range) + parseInt(minInput.min);
+            const newMax = newMin + parseInt(maxInput.value) - parseInt(minInput.value);
+
+            minInput.value = newMin;
+            maxInput.value = newMax;
+            updateProgress();
         }
         slider.classList.toggle('dragging', isDragging);
     });
@@ -89,11 +104,32 @@ if (document.querySelector('.filter-prod__range-price')) {
     document.addEventListener('mouseup', (e) => {
         if(isDragging) {
             isDragging = false;
-            console.log('stop dragging')
         }
         slider.classList.toggle('dragging', isDragging);
-    })
+    });
 
+    form.addEventListener('reset', () => {
+        setTimeout(updateProgress, 0);
+    });
 
     updateProgress();
+
+    legendBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const content = e.target.nextElementSibling;
+            if(content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+    sortBtn.addEventListener('click', (e) => {
+        const content = e.target.nextElementSibling;
+        if(content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + 1 + 'px';
+        }
+    })
 }

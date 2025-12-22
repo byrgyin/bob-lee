@@ -2,29 +2,43 @@ mixin catalog(data)
     - const filterCat = [{name:'Футболки',idFor:'cat-tshirts',name_checkbox:'filter_cat',value:'tshirts'},{name:'Лонгслив',idFor:'cat-longsleeve',name_checkbox:'filter_cat',value:'longsleeve'},{name:'Худи',idFor:'cat-hoodie',name_checkbox:'filter_cat',value:'hoodie'},{name:'Брюки',idFor:'cat-trousers',name_checkbox:'filter_cat',value:'trousers'},]
     - const filterSize = [{name:'O',idFor:'size-o',value:'o'},{name:'OS',idFor:'size-os',value:'os'},]
     - const filterColor = [{name:'Черный',idFor:'color-black',value:'black',hex:'#000000'},{name:'Серый',idFor:'color-gray',value:'gray',hex:'#8C8C8C'},{name:'Белый',idFor:'color-white',value:'white',hex:'#FFFFFF'},{name:'Бежевый',idFor:'color-beige',value:'beige',hex:'#F5EDCD'},{name:'Черный',idFor:'color-brown',value:'brown',hex:'#8C3509'},{name:'Розовый',idFor:'color-pink',value:'pink',hex:'#F2B7C9'},]
+    - const sortList = [{name:'Дешевле – Дороже', attr:'cheap-to-expensive'},{name:'Дороже – Дешевле', attr:'expensive-to-cheap'},{name:'По скидке', attr:'discount'},{name:'Новинка', attr:'novelty'},]
     section.catalog
         .container
             h1.catalog__title Каталог
+            .catalog__control-panel
+                button.control-panel__open-filter Фильтры
+                    +image({src:'images/filters-icon.svg'})
+                .control-panel__find-product Найдено 26 товаров
+                .control-panel__wrapper-sort
+                    button.control-panel__open-sort Сортировка
+                        +image({src:'images/sort-icon.svg'})
+                    .control-panel__wrapper-sort-list
+                        ul.control-panel__sort-list
+                            each item in sortList
+                                li.control-panel__sort-item
+                                    button.control-panel__sort-btn(data-sort=item.attr)=item.name
             .catalog__wrapper
                 aside(role="complementary" aria-label="Фильтры товаров").catalog__filter-prod
                     .filter-prod__head
                         h2 Фильтры
-                        .filter-prod__find-product Найдено 26 товаров
                         button.filter-prod__close
                     form(method="get" action="" aria-label="Форма фильтрации")
                         fieldset.filter-prod__fieldset(data-filter-type="category")
                             legend.filter-prod__legend Тип одежды
                                 +image({src:'images/arrow-down.svg'})
-                            ul.filter-prod__category-list
-                                each item in filterCat
-                                    li.filter-prod__item
-                                        label.filter-prod__label(for=item.idFor)
-                                            input.filter-prod__input(id=item.idFor type='checkbox', name='filter_cat', value=item.value)
-                                            span=item.name
+                            .filter-prod__wrap-category-list
+                             ul.filter-prod__category-list
+                               each item in filterCat
+                                 li.filter-prod__item
+                                   label.filter-prod__label(for=item.idFor)
+                                     input.filter-prod__input(id=item.idFor type='checkbox', name='filter_cat', value=item.value)
+                                     span=item.name
                         fieldset.filter-prod__fieldset(data-filter-attribute="pa_size")
                             legend.filter-prod__legend Размер
                                 +image({src:'images/arrow-down.svg'})
-                            ul.filter-prod__category-list
+                            .filter-prod__wrap-category-list
+                             ul.filter-prod__category-list
                                 each item in filterSize
                                     li.filter-prod__item
                                         label.filter-prod__label(for=item.idFor)
@@ -33,7 +47,8 @@ mixin catalog(data)
                         fieldset.filter-prod__fieldset(data-filter-attribute="pa_color")
                             legend.filter-prod__legend Цвет
                                 +image({src: 'images/arrow-down.svg'})
-                            ul.filter-prod__category-list
+                            .filter-prod__wrap-category-list
+                              ul.filter-prod__category-list
                                 each item in filterColor
                                     li.filter-prod__item
                                         label.filter-prod__label(for=item.idFor)
@@ -43,10 +58,11 @@ mixin catalog(data)
                         fieldset.filter-prod__fieldset.filter-prod__fieldset-range-price(data-filter-type="price")
                             legend.filter-prod__legend Цена
                                 +image({src: 'images/arrow-down.svg'})
-                            .filter-prod__range-price
+                            .filter-prod__wrap-category-list
+                              .filter-prod__range-price
                                 input(type='number' class='range-price__min-price' value='25' min='1' max='100')
                                 input(type='number' class='range-price__max-price' value='75' min='1' max='100')
-                            .filter-prod__range-slider
+                              .filter-prod__range-slider
                                 input(type='range' class='range-price__min-input' value='25' min='1' max='100')
                                 input(type='range' class='range-price__max-input' value='75' min='1' max='100')
                                 .range-slider__slider
