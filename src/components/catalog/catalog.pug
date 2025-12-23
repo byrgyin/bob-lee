@@ -21,9 +21,9 @@ mixin catalog(data)
             .catalog__wrapper
                 aside(role="complementary" aria-label="Фильтры товаров").catalog__filter-prod
                     .filter-prod__head
-                        h2 Фильтры
+                        h2.filter-prod__head-title Фильтры
                         button.filter-prod__close
-                    form(method="get" action="" aria-label="Форма фильтрации")
+                    form.filter-prod__form(method="get" action="" aria-label="Форма фильтрации")
                         fieldset.filter-prod__fieldset(data-filter-type="category")
                             legend.filter-prod__legend Тип одежды
                                 +image({src:'images/arrow-down.svg'})
@@ -75,3 +75,4 @@ mixin catalog(data)
                     each item in data
                         li.catalog__item
                             +cardProdcut(item)
+                button.button.button--white.catalog__loadmore Показать ещё

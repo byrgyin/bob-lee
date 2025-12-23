@@ -9,7 +9,11 @@ if (document.querySelector('.filter-prod__range-price')) {
         maxInput = slider.querySelector('.range-price__max-input'),
         form = document.querySelector('.catalog__filter-prod form'),
         legendBtn = document.querySelectorAll('.filter-prod__legend'),
-        sortBtn = document.querySelector('.control-panel__open-sort');
+        sortBtn = document.querySelector('.control-panel__open-sort'),
+        buttonFilterOpen = document.querySelector('.control-panel__open-filter'),
+        asideFilters = document.querySelector('.catalog__filter-prod'),
+        buttonClose = document.querySelector('.filter-prod__close'),
+        body = document.querySelector('body');
 
     let isDragging = false;
     let startOffsetX;
@@ -124,12 +128,28 @@ if (document.querySelector('.filter-prod__range-price')) {
             }
         });
     });
+
     sortBtn.addEventListener('click', (e) => {
         const content = e.target.nextElementSibling;
         if(content.style.maxHeight){
             content.style.maxHeight = null;
         } else {
-            content.style.maxHeight = content.scrollHeight + 1 + 'px';
+            content.style.maxHeight = content.scrollHeight + 'px';
         }
+    });
+
+    buttonFilterOpen.addEventListener('click', (e) => {
+        asideFilters.style.cssText = 'transition: transform .3s ease;';
+        asideFilters.classList.add('catalog__filter-prod--active');
+        body.classList.add('body-active');
+    });
+    asideFilters.addEventListener('transitionend', (e) => {
+        if(!asideFilters.classList.contains('catalog__filter-prod--active')) {
+            asideFilters.style.cssText = '';
+        }
+    });
+    buttonClose.addEventListener('click', (e) => {
+        asideFilters.classList.remove('catalog__filter-prod--active');
+        body.classList.remove('body-active');
     })
 }
