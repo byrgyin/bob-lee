@@ -1,0 +1,25 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.tech-comp{
+  padding: 24px 0;
+  &__title{
+    margin: 0 0 24px;
+    text-align: center;
+  }
+  &__richtext{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 684px;
+    h2{
+      margin: 0 0 16px;
+    }
+    p{
+      margin: 0 0 12px;
+    }
+    ol,ul{
+      list-style: auto;
+      padding: 0 0 0 18px;
+      margin: 0 0 12px;
+    }
+  }
+}

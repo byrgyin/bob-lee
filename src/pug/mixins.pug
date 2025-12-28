@@ -4,6 +4,11 @@ mixin style(name)
 
 mixin cardProdcut(obj)
     .card
+        .card__top-info
+            button(data-id-product='1231').card__add-to-wish
+                +image({src:'images/wish.svg',klassImg:'card__new-img card__img-wish'})
+            if obj.newProduct
+                +image({src:'images/icon-new.svg',klassImg:'card__new-img'})
         a(href='/product.html').card__link-img
             +image({src: obj.src, klassImg: 'card__img', klassPic: 'card__pic'})
         .card__bottom-info

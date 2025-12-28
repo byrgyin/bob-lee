@@ -1,0 +1,11 @@
+extends ../pug/layout.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/cart/cart.pug
+
+block title 
+  title cart
+block content
+    +breadcrumbs([
+        {link: true, linkContent: '/', text: 'Главная'},
+        {link: false, text: 'Корзина'}])
+    +cart

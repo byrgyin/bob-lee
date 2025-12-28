@@ -1,0 +1,38 @@
+mixin cart(data)
+  - const cartProduct = [{name:'Тишка “I live, you follow the rules”',src:'images/prod_one.webp',price:'7000 Р',count:'1'},{name:'Тишка “Living my Life””',src:'images/prod_two.webp',price:'7000 Р',count:'3',moreCount:true},{name:'Тишка “I live, you follow the rules”',src:'images/prod_three.webp',price:'6500 P',count:'1'},]
+  section.cart
+    .container
+        h1.cart__title Корзина
+        form.cart__form.woocommerce-cart-form(action="" method="post")
+            ul.cart__list
+                each item in cartProduct
+                    li.cart__item
+                        a(href='#').cart__link-img
+                            +image({src:item.src,klassPic:'cart__pic',klassImg:'cart__img'})
+                        .cart__info-block
+                            .cart__head-info
+                                .cart__item-title=item.name
+                                .cart__item-price=item.price
+                            .cart__item-composition
+                                .cart__item-composition-title.cart__item-prod-copmtitle Состав
+                                .cart__item-composition 46% хлопок, 46% полиэстер, 8% эластан
+                            .cart__item-sizes-applic
+                                .cart__item-size
+                                    .cart__item-size-title.cart__item-prod-copmtitle Размеры
+                                    .cart__item-size-target OS
+                                .cart__item-applic
+                                    .cart__item-applic-title.cart__item-prod-copmtitle Нанесение
+                                    .cart__item-applic-target DTF
+                            .cart__count-del
+                                .cart__count-wrapper
+                                    if item.moreCount
+                                        button(data-id-prod='12312312' data-action='loss').cart__count-btn.cart__count-btn-minus.cart__count-btn-minus--active
+                                    else
+                                        button(data-id-prod='12312312' data-action='loss').cart__count-btn.cart__count-btn-minus
+                                    if item.moreCount
+                                        input(type='number' value='3').cart__count-input
+                                    else
+                                        input(type='number' value='1').cart__count-input
+                                    button(data-id-prod='12312312' data-action='gross').cart__count-btn.cart__count-btn-plus
+                                button.cart__count-delete(data-id-prod='12312312') Удалить
+            button(type='submit').button.cart__submit Оформить Заказ

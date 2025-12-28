@@ -15,3 +15,5 @@ import './components/hero-simple/hero-simple.js';
 import './components/lookbook-repeat/lookbook-repeat.js';
 import './components/new-product/new-product.js';
 import './components/catalog/catalog.js';
+import './components/cart/cart.js';
+import './components/tech-comp/tech-comp.js';

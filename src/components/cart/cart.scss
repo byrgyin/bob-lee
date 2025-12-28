@@ -1,0 +1,158 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.cart{
+  padding: 24px 0 0;
+  &__title{
+    margin: 0 0 24px;
+    font-family: $font-family-bold;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    @include tablet{
+      font-size: 32px;
+    }
+  }
+  &__form{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 684px;
+  }
+  &__list{
+    margin: 0 0 40px;
+  }
+  &__item{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 24px;
+    @include tablet{
+      gap: 12px;
+    }
+    &:not(:first-child){
+      padding-top: 24px;
+      border-top: 1px solid $primary-color-1;
+    }
+    &:not(:last-child){
+      margin-bottom: 24px;
+    }
+  }
+  &__link-img{
+    display: block;
+    width: 100%;
+    max-width: 138px;
+    height: 161px;
+    @include tablet{
+      max-width: 170px;
+      height: 199px;
+    }
+  }
+  &__pic,
+  &__img{
+    width: 100%;
+    height: 100%;
+  }
+  &__pic{
+    display: block;
+  }
+  &__img{
+    object-fit: cover;
+  }
+  &__head-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0 0 8px;
+    font-family: $font-family-bold;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    @include tablet{
+      font-size: 20px;
+    }
+  }
+  &__item-composition{
+    margin: 0 0 8px;
+  }
+  &__item-sizes-applic{
+    display: flex;
+    gap: 24px;
+    margin: 0 0 16px;
+  }
+  &__count-del{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__item-prod-copmtitle{
+    margin: 0 0 4px;
+    color: $primary-color-3;
+  }
+  &__count-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: $primary-color-2;
+    border: 1px solid $primary-color-1;
+    cursor: pointer;
+    &-minus{
+      background-color: $primary-color-2;
+      &:before{
+        content: "";
+        width: 10px;
+        height: 1px;
+        background-color: $primary-color-3;
+      }
+      &--active{
+        background-color: $primary-color-1;
+        &:before{
+          background-color: $primary-color-2;
+        }
+      }
+    }
+    &-plus{
+      position: relative;
+      background-color: $primary-color-1;
+      &:before,
+      &:after{
+        content: "";
+        width: 10px;
+        height: 1px;
+        background-color: $primary-color-2;
+      }
+      &:after{
+        position: absolute;
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &__count-input{
+    width: 40px;
+    height: 24px;
+    outline: none;
+    border: none;
+    text-align: center;
+    padding: 0;
+    border-radius: 0;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  &__count-wrapper{
+    display: flex;
+  }
+  &__count-delete{
+    cursor: pointer;
+  }
+  &__submit{
+    display: block;
+    width: fit-content;
+    margin: 0 auto 0;
+  }
+}

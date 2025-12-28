@@ -1,7 +1,7 @@
-@use "fonts";
-@use "variables";
-@use "mixins";
-@use "typography";
+@use "fonts" as *;
+@use "variables" as *;
+@use "mixins" as *;
+@use "typography" as *;
 
 html {
   box-sizing: border-box;
@@ -16,13 +16,13 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: variables.$font-family-base;
-  font-size: variables.$font-base-size;
+  font-family: $font-family-base;
+  font-size: $font-base-size;
   line-height: 120%;
-  color: variables.$primary-color-1;
+  color: $primary-color-1;
   scroll-behavior: smooth;
   &::-webkit-scrollbar {
-    width: 5px; /* Ширина для вертикального скроллбара */
+    width: 5px;
   }
   &::-webkit-scrollbar-track {
     background: rgb(191, 191, 191);
@@ -78,7 +78,7 @@ ul, ol {
   max-width: 1440px;
   padding: 0 24px;
   margin: 0 auto;
-  @include mixins.tablet {
+  @include tablet {
     padding: 0 12px;
   }
 }
@@ -92,26 +92,44 @@ ul, ol {
   text-align: center;
   line-height: 120%;
   letter-spacing: 0;
-  color: variables.$primary-color-2;
-  background-color: variables.$primary-color-1;
+  color: $primary-color-2;
+  background-color: $primary-color-1;
   transition: background-color 0.1s ease, color 0.1s ease;
   text-decoration: none !important;
   cursor: pointer;
   &:hover{
-    background-color: variables.$primary-color-3;
+    background-color: $primary-color-3;
   }
 }
 
 .button--white {
-  color: variables.$primary-color-1;
-  background-color: variables.$primary-color-2;
-  border: 1px solid variables.$primary-color-3;
+  color: $primary-color-1;
+  background-color: $primary-color-2;
+  border: 1px solid $primary-color-3;
   &:hover{
-    color: variables.$primary-color-2;
-    background-color: variables.$primary-color-3;
+    color: $primary-color-2;
+    background-color: $primary-color-3;
   }
 }
 .card{
+  position: relative;
+  &__top-info{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+  }
+  &__add-to-wish{
+    cursor: pointer;
+  }
+  &__new-img{
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
   &__link-item,
   &__link-img {
     display: block;
@@ -120,7 +138,7 @@ ul, ol {
     text-decoration: none !important;
     transition: color 0.3s ease;
     &:hover{
-      color: variables.$primary-color-3
+      color: $primary-color-3
     }
   }
   &__link-img {
@@ -147,7 +165,7 @@ ul, ol {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
-    @include mixins.landscape-mobile {
+    @include landscape-mobile {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -157,7 +175,7 @@ ul, ol {
     grid-row: 1;
     grid-column: 2;
     color: rgba(140, 140, 140, 1);
-    @include mixins.landscape-mobile {
+    @include landscape-mobile {
       text-align: left;
       grid-row: 1;
       grid-column: 1;

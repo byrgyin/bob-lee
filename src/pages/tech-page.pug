@@ -1,0 +1,11 @@
+extends ../pug/layout.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/tech-comp/tech-comp.pug
+
+block title 
+    title tech-page
+block content
+    +breadcrumbs([
+        {link: true, linkContent: '/', text: 'Главная'},
+        {link: false, text: 'Документы'}])
+    +tech-comp
