@@ -34,12 +34,14 @@
       display: flex;
       grid-row: 1;
       overflow: auto;
+      -webkit-overflow-scrolling: touch;
       height: 372px;
       scroll-snap-type: x mandatory;
     }
     &::-webkit-scrollbar {
-      width: 2px; /* Ширина для вертикального скроллбара */
-      height: 2px;
+      display: block;
+      width: 6px;
+      height: 6px;
     }
     &::-webkit-scrollbar-track {
       background: rgb(191, 191, 191);
@@ -47,6 +49,12 @@
     &::-webkit-scrollbar-thumb {
       background: #000;
       border-radius: 10px;
+      min-height: 20px;
+    }
+    &::-webkit-scrollbar-button {
+      width: 0;
+      height: 0;
+      display: none;
     }
   }
   &__gallery-item{
@@ -192,6 +200,12 @@
       height: 18px;
     }
   }
+  &__button{
+    @include mobile{
+      display: block;
+      width: 100%;
+    }
+  }
 }
 .faq-prod{
   &__item:not(:last-child){
@@ -207,6 +221,7 @@
     gap: 8px;
     padding: 0 0 8px;
     width: 100%;
+    color: $primary-color-1;
     border-bottom: 1px solid $primary-color-1;
     font-family: $font-family-bold;
     transition: margin ease-in-out .3s;

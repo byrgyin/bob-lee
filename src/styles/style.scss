@@ -144,9 +144,11 @@ ul, ol {
   &__link-img {
     margin: 0 0 8px;
     overflow: hidden;
-    &:hover {
-      .card__img{
-        transform: scale(1.2);
+    @media (hover:hover) {
+      &:hover {
+        .card__img{
+          transform: scale(1.2);
+        }
       }
     }
   }

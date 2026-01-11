@@ -35,4 +35,7 @@ mixin cart(data)
                                         input(type='number' value='1').cart__count-input
                                     button(data-id-prod='12312312' data-action='gross').cart__count-btn.cart__count-btn-plus
                                 button.cart__count-delete(data-id-prod='12312312') Удалить
-            button(type='submit').button.cart__submit Оформить Заказ
+            .cart__total-block
+                .cart__total-title Итого к оплате
+                .cart__total-price 27 500 р
+                button(type='submit').button.cart__submit Оформить Заказ

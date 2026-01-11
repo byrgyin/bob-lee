@@ -2,7 +2,10 @@
 @use "../../styles/variables" as *;
 
 .cart{
-  padding: 24px 0 0;
+  padding: 24px 0;
+  @include tablet{
+    padding: 12px 0;
+  }
   &__title{
     margin: 0 0 24px;
     font-family: $font-family-bold;
@@ -149,10 +152,20 @@
   }
   &__count-delete{
     cursor: pointer;
+    color: $primary-color-1;
+  }
+  &__total-block{
+    text-align: right;
+  }
+  &__total-price{
+    margin: 0 0 24px;
+    font-family: $font-family-bold;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
   }
   &__submit{
     display: block;
-    width: fit-content;
-    margin: 0 auto 0;
+    width: 100%;
   }
 }

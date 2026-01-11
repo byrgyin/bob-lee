@@ -22,7 +22,8 @@
     }
   }
   &__swiper-scrollbar{
-    position: relative;
+    position: relative !important;
+    height: 6px !important;
     .swiper-scrollbar-drag{
       background: $primary-color-1
     }

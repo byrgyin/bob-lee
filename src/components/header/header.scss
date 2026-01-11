@@ -9,7 +9,7 @@
   width: 100%;
   padding: 24px 0;
   color: $primary-color-2;
-  transition: background-color ease 0.3s;
+  transition: background-color ease 0.3s,padding ease 0.3s;
   @include tablet {
     padding: 12px 0;
   }
@@ -35,6 +35,9 @@
     .header__link-logo {
       opacity: 1;
     }
+  }
+  &--scrolled{
+    padding: 12px 0;
   }
 
   &--active{
