@@ -11,14 +11,25 @@ if (document.querySelector('.filter-prod__range-price')) {
         legendBtn = document.querySelectorAll('.filter-prod__legend'),
         sortBtn = document.querySelector('.control-panel__open-sort'),
         buttonFilterOpen = document.querySelector('.control-panel__open-filter'),
+        buttonFilterClose = document.querySelector('.control-panel__close-sort') ,
         asideFilters = document.querySelector('.catalog__filter-prod'),
         buttonClose = document.querySelector('.filter-prod__close'),
-        body = document.querySelector('body');
+        body = document.querySelector('body'),
+        widthMatch = window.matchMedia("(max-width: 767px)");
 
     let isDragging = false;
     let startOffsetX;
 
 
+    const checkResize = (content) => {
+        if(widthMatch.matches){
+            if(content.style.maxHeight){
+                body.classList.add('body-active');
+            } else {
+                body.classList.remove('body-active');
+            }
+        }
+    }
     const updateProgress = ()=>{
       const minValue = parseInt(minInput.value)
       const maxValue = parseInt(maxInput.value);
@@ -136,6 +147,14 @@ if (document.querySelector('.filter-prod__range-price')) {
         } else {
             content.style.maxHeight = content.scrollHeight + 'px';
         }
+        checkResize(content);
+    });
+    buttonFilterClose.addEventListener('click', (e) => {
+        const content = e.target.closest('.control-panel__wrapper-sort-list');
+        if(content){
+            content.style.maxHeight = null;
+            body.classList.remove('body-active');
+        }
     });
 
     buttonFilterOpen.addEventListener('click', (e) => {
@@ -151,5 +170,5 @@ if (document.querySelector('.filter-prod__range-price')) {
     buttonClose.addEventListener('click', (e) => {
         asideFilters.classList.remove('catalog__filter-prod--active');
         body.classList.remove('body-active');
-    })
+    });
 }

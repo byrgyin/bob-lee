@@ -14,10 +14,17 @@ mixin catalog(data)
                     button.control-panel__open-sort Сортировка
                         +image({src:'images/sort-icon.svg'})
                     .control-panel__wrapper-sort-list
-                        ul.control-panel__sort-list
-                            each item in sortList
-                                li.control-panel__sort-item
-                                    button.control-panel__sort-btn(data-sort=item.attr)=item.name
+                        .control-panel__wrapper-pseudo
+                            .control-panel__sort-header
+                                .control-panel__sort-title Сортировка
+                                button.control-panel__close-sort
+                            ul.control-panel__sort-list
+                                each item in sortList
+                                    li.control-panel__sort-item
+                                        button.control-panel__sort-btn(data-sort=item.attr)=item.name
+                            .control-panel__sort-bottom
+                                button.button.control-panel__sort-apply Применить сортировку
+                                button.button.button--white.control-panel__sort-reset Сбросить
             .catalog__wrapper
                 aside(role="complementary" aria-label="Фильтры товаров").catalog__filter-prod
                     .filter-prod__head

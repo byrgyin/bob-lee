@@ -166,6 +166,9 @@
   }
   &__submit{
     display: block;
-    width: 100%;
+    margin: 0 0 0 auto;
+   @include landscape-mobile{
+     width: 100%;
+   }
   }
 }
