@@ -42,7 +42,7 @@ resizeObserver.observe(bodyForClose);
 if(window.location.pathname !== '/') {
  header.classList.add('header--not-hp');
 }
-if(window.location.pathname.includes('/bob-lee-prod/')) {
+if(window.location.pathname === ('/bob-lee-prod/')) {
     header.classList.remove('header--not-hp');
 }
 if(window.location.pathname.includes('not-found')) {
