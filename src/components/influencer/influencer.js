@@ -64,7 +64,6 @@ if (document.querySelector('.influencer__swiper')) {
             if(width < 480){
                 influencerSliderInit();
             } else {
-                console.log(width)
                 influencerSliderInit(true);
             }
         }

@@ -163,7 +163,7 @@
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    padding: 11px 10px;
+    padding: 10px 8px;
     text-align: center;
     border:1px solid $primary-color-3
   }
@@ -224,6 +224,7 @@
     color: $primary-color-1;
     border-bottom: 1px solid $primary-color-1;
     font-family: $font-family-bold;
+    font-size: 16px;
     transition: margin ease-in-out .3s;
     cursor: pointer;
     &--active{
